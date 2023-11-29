@@ -1,0 +1,18 @@
+.layout {
+    max-width: 1440px;
+    margin: 0 auto;
+    height: 100vh;
+    background-color: hsl(235, 21%, 11%);
+}
+
+.background {
+    position: absolute;
+    z-index: 0;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 200px
+}

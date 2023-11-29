@@ -1,0 +1,17 @@
+.container {
+    display: flex;
+    width: 500px;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+    position: relative
+}
+
+.todoText {
+    color: white;
+    letter-spacing: 15px;
+}
+
+.sunImg {
+    
+}
