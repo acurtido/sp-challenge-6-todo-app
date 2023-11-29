@@ -11,8 +11,5 @@
 }
 
 .content {
-    display: flex;
-    justify-content: center;
-    position: relative;
-    top: 100px
+    padding-top: 100px
 }

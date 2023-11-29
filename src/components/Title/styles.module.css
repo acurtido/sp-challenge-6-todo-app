@@ -3,15 +3,11 @@
     width: 500px;
     justify-content: space-between;
     align-items: center;
-    z-index: 1;
-    position: relative
+    position: relative;
+    margin: 0 auto;
 }
 
 .todoText {
     color: white;
     letter-spacing: 15px;
-}
-
-.sunImg {
-    
 }

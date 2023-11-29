@@ -1,5 +1,3 @@
-import React from 'react'
-
 import styles from './styles.module.css'
 import imgSun from '/images/icon-sun.svg'
 

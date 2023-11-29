@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import imgDark from '/images/bg-desktop-dark.jpg'
 
 import styles from './styles.module.css'
