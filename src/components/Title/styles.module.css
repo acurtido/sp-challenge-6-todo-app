@@ -12,6 +12,12 @@
     letter-spacing: 15px;
 }
 
-.sunImg {
-    
+.sunImg:hover {
+    cursor: pointer;
+    transform: scale(1.1);  
+}
+
+.moonImg:hover {
+    cursor: pointer;
+    transform: scale(1.1);    
 }
