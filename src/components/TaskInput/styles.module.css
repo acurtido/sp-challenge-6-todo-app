@@ -1,0 +1,32 @@
+.container {
+    position: relative;
+    margin: 0 auto;
+    width: 540px;
+    height: 64px;
+    background-color: hsl(235, 24%, 19%);
+    border-radius: 5px;
+    display: flex;
+}
+
+.form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 10px;
+}
+
+.input {
+    border: none;
+    background-color: hsl(235, 24%, 19%);
+    color: white;
+    outline: none;
+    width: 100%;
+    font-size: 1.1rem;
+}
+
+.checkbox {
+    
+}
+
