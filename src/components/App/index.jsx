@@ -1,11 +1,12 @@
 import imgDark from '/images/bg-desktop-dark.jpg'
 
-import styles from './styles.module.css'
 import Title from '../Title'
 import TaskInput from '../TaskInput'
 import CheckList from '../CheckList'
 import TasksLeft from '../TasksLeft'
 import Filters from '../Filters'
+import styles from './styles.module.css'
+
 function App() {
 
   return (
@@ -15,8 +16,10 @@ function App() {
         <Title />
         <TaskInput />
         <CheckList />
-        <TasksLeft />
-        <Filters />
+        <div className={styles.footer}>
+          <TasksLeft />
+          <Filters />
+        </div>
       </div>
     </main>
   )

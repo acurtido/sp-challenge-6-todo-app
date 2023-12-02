@@ -1,6 +1,5 @@
 .container {
     position: relative;
-    width: 540px;
     margin: 0 auto;
     background-color: hsl(235, 24%, 19%);
 }
