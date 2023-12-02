@@ -19,7 +19,7 @@
 }
 
 .checkbox:checked::before {
-    content: url("../../public/images/icon-check.svg");
+    content: url("/images/icon-check.svg");
     display: flex;
     justify-content: center;
     align-items: center;

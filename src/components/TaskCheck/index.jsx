@@ -4,7 +4,7 @@ import React from 'react'
 export default function TaskCheck() {
     return (
         <div>
-            <input type='checkbox' className={styles.checkbox} />
+            <input type='checkbox'  className={styles.checkbox} />
         </div>
     )
 }
