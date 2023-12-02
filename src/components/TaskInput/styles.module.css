@@ -6,6 +6,7 @@
     background-color: hsl(235, 24%, 19%);
     border-radius: 5px;
     display: flex;
+    margin-top: 20px;
 }
 
 .form {
