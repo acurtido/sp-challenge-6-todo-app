@@ -5,6 +5,8 @@
     align-items: center;
     gap: 20px;
     padding: 10px;
+    border-bottom: 1px solid;
+    border-color:  hsl(237, 14%, 26%);
 }
 
 .task {

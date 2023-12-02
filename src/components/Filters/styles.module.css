@@ -1,6 +1,7 @@
 .container {
     position: relative;
-    margin: 0 auto;
+    /* margin: 0 auto; */
+    width: 100%;
     background-color: hwb(235 15% 76%);
     color: hsl(234, 39%, 85%);
     display: flex;
@@ -16,4 +17,14 @@
 .link:hover {
     cursor: pointer;
     color: white;
+}
+
+.container__AllActiveCompleted{
+    display: flex;
+    gap: 15px;
+    
+}
+
+.container__Clear{
+    
 }
