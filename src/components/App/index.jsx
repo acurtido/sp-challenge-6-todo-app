@@ -5,6 +5,7 @@ import styles from './styles.module.css'
 import Title from '../Title'
 import TaskInput from '../TaskInput'
 import CheckList from '../CheckList'
+import TasksLeft from '../TasksLeft'
 function App() {
 
   return (
@@ -14,6 +15,7 @@ function App() {
         <Title />
         <TaskInput />
         <CheckList />
+        <TasksLeft />
       </div>
     </main>
   )
