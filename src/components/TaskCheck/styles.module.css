@@ -1,0 +1,28 @@
+.checkbox {
+    appearance: none;
+    border: 1px solid hsl(236, 33%, 92%);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.checkbox:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.checkbox:checked {
+    background: linear-gradient( hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+}
+
+.checkbox:not(:checked) {
+}
+
+.checkbox:checked::before {
+    content: url("/images/icon-check.svg");
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: scale(1.8);
+    translate: 0 7px;
+}

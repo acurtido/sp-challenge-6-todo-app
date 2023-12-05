@@ -1,0 +1,29 @@
+.form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 10px;
+    border-bottom: 1px solid;
+    border-color:  hsl(237, 14%, 26%);
+}
+
+.task {
+    border: none;
+    /* background-color: hsl(235, 24%, 19%); */
+    /* color: white; */
+    outline: none;
+    width: 100%;
+    font-size: 1.1rem;
+}
+
+.dark {
+    background-color: hsl(235, 24%, 19%);
+    color: white;
+}
+
+.light {
+    background-color: white;
+    color: black;
+}

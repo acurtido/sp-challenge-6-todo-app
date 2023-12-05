@@ -2,7 +2,14 @@
     max-width: 1440px;
     margin: 0 auto;
     height: 100vh;
+}
+
+.dark {
     background-color: hsl(235, 21%, 11%);
+}
+
+.light {
+    background-color: hsl(0, 0%, 98%);
 }
 
 .background {
@@ -11,10 +18,18 @@
 }
 
 .content {
+    padding-top: 100px;
+}
+
+.footer {
+    width: 540px;
+    margin: 0 auto;
+    padding: 0 15px;
     display: flex;
-    justify-content: center;
+    background-color: hwb(235 15% 76%);
+    justify-content: space-between;
     align-items: center;
-    height: 100vh;
-   /*  position: relative;
-    top: 100px */
+    height: 45px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 }

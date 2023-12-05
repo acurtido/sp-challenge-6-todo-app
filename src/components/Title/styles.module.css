@@ -1,10 +1,10 @@
 .container {
     display: flex;
-    width: 500px;
+    width: 540px;
     justify-content: space-between;
     align-items: center;
-    z-index: 1;
-    position: relative
+    margin: 0 auto;
+    position: relative;
 }
 
 .todoText {
@@ -12,6 +12,12 @@
     letter-spacing: 15px;
 }
 
-.sunImg {
-    
+.sunImg:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.moonImg:hover {
+    transform: scale(1.2);
+    cursor: pointer;
 }
