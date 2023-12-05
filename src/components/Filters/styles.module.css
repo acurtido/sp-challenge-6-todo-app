@@ -28,3 +28,14 @@
 .container__Clear{
     
 }
+
+.darkFooter {
+    background-color: hwb(235 15% 76%);}
+
+.lightFooter {
+    background-color: hsl(236, 33%, 92%);
+}
+
+.lightFooter a {
+    color: hsl(236, 9%, 61%);
+}

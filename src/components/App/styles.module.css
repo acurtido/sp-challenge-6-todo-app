@@ -26,10 +26,16 @@
     margin: 0 auto;
     padding: 0 15px;
     display: flex;
-    background-color: hwb(235 15% 76%);
     justify-content: space-between;
     align-items: center;
     height: 45px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
+}
+
+.darkFooter {
+    background-color: hwb(235 15% 76%);}
+
+.lightFooter {
+    background-color: hsl(236, 33%, 92%);
 }
