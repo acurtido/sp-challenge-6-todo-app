@@ -1,4 +1,6 @@
+import { useState } from 'react'
 import imgDark from '/images/bg-desktop-dark.jpg'
+import imgLight from '/images/bg-desktop-light.jpg'
 
 import Title from '../Title'
 import TaskInput from '../TaskInput'
@@ -8,17 +10,26 @@ import Filters from '../Filters'
 import styles from './styles.module.css'
 
 function App() {
+  const [theme, setTheme] = useState('dark')
+
+  const changeTheme = () => {
+    if(theme === 'dark'){
+      setTheme('light')
+    }else{
+      setTheme('dark')
+    }
+  }
 
   return (
-    <main className={styles.layout}>
-      <img className={styles.background} src={imgDark} alt="" />
+    <main className={`${styles.layout} ${theme == 'dark' ? styles.dark : styles.light}`}>
+      <img className={styles.background} src={theme == 'dark' ? imgDark : imgLight} alt="" />
       <div className={styles.content}>
-        <Title />
-        <TaskInput />
-        <CheckList />
+        <Title theme={theme} changeTheme={changeTheme}/>
+        <TaskInput theme={theme} />
+        <CheckList theme={theme} />
         <div className={styles.footer}>
-          <TasksLeft />
-          <Filters />
+          <TasksLeft theme={theme} />
+          <Filters theme={theme} />
         </div>
       </div>
     </main>

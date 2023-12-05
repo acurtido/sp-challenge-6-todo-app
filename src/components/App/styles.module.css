@@ -2,7 +2,15 @@
     max-width: 1440px;
     margin: 0 auto;
     height: 100vh;
+   
+}
+
+.dark {
     background-color: hsl(235, 21%, 11%);
+}
+
+.light {
+    background-color: hsl(0, 0%, 98%);
 }
 
 .background {
