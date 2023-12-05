@@ -3,13 +3,19 @@
     margin: 0 auto;
     width: 540px;
     /* height: 64px; */
-    background-color: hsl(235, 24%, 19%);
     border-radius: 5px;
     display: flex;
     flex-direction: column;
     margin-top: 20px;
 }
 
+.dark {
+    background-color: hsl(235, 24%, 19%);
+}
+
+.light {
+    background-color: white;
+}
 
 
 

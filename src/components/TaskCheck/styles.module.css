@@ -1,6 +1,6 @@
 .checkbox {
     appearance: none;
-    border: 1px solid white;
+    border: 1px solid hsl(236, 33%, 92%);
     width: 30px;
     height: 30px;
     border-radius: 50%;
@@ -26,4 +26,3 @@
     transform: scale(1.8);
     translate: 0 7px;
 }
-

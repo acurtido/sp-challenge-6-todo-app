@@ -11,9 +11,19 @@
 
 .task {
     border: none;
-    background-color: hsl(235, 24%, 19%);
-    color: white;
+    /* background-color: hsl(235, 24%, 19%); */
+    /* color: white; */
     outline: none;
     width: 100%;
     font-size: 1.1rem;
+}
+
+.dark {
+    background-color: hsl(235, 24%, 19%);
+    color: white;
+}
+
+.light {
+    background-color: white;
+    color: black;
 }

@@ -29,7 +29,7 @@ function App() {
         <CheckList theme={theme} />
         <div className={styles.footer}>
           <TasksLeft theme={theme} />
-          <Filters theme={theme} />
+          <Filters theme={theme} /> {/* chiquito */}
         </div>
       </div>
     </main>
