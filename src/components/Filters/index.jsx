@@ -1,8 +1,8 @@
 import styles from './styles.module.css'
 
-export default function Filters() {
+export default function Filters({theme}) {
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} ${theme == 'dark' ? styles.darkFooter : styles.lightFooter}`}>
       <div className={styles.container__AllActiveCompleted}>
           <a href='#' onClick={() => alert("All clickeado")} className={styles.link}>All</a>
           <a href='#' className={styles.link}>Active</a>

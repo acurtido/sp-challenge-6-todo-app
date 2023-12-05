@@ -21,13 +21,13 @@ function App() {
   }
 
   return (
-    <main className={`${styles.layout} ${theme == 'dark' ? styles.dark : styles.light}`}>
+    <main className={`${styles.layout} ${theme == 'dark' ? styles.darkFooter : styles.lightFooter}`}>
       <img className={styles.background} src={theme == 'dark' ? imgDark : imgLight} alt="" />
       <div className={styles.content}>
         <Title theme={theme} changeTheme={changeTheme}/>
         <TaskInput theme={theme} />
         <CheckList theme={theme} />
-        <div className={styles.footer}>
+        <div className={`${styles.footer} ${theme == 'dark' ? styles.darkFooter : styles.lightFooter}`}>
           <TasksLeft theme={theme} />
           <Filters theme={theme} />
         </div>
