@@ -11,22 +11,39 @@ import styles from './styles.module.css'
 
 function App() {
   const [theme, setTheme] = useState('dark')
+  const [task, setTask] = useState('')
+  const [tasks, setTasks] = useState([])
 
   const changeTheme = () => {
-    if(theme === 'dark'){
+    if (theme === 'dark') {
       setTheme('light')
-    }else{
+    } else {
       setTheme('dark')
     }
+  }
+
+  const handleOnChange = (e) => {
+    e.preventDefault()
+    setTask(e.target.value)
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    addTask(task)
+  }
+
+  const addTask = (task) => { 
+    const newTask = {name: task, completed: false}
+    setTasks([newTask, ...tasks]) 
   }
 
   return (
     <main className={`${styles.layout} ${theme == 'dark' ? styles.darkFooter : styles.lightFooter}`}>
       <img className={styles.background} src={theme == 'dark' ? imgDark : imgLight} alt="" />
       <div className={styles.content}>
-        <Title theme={theme} changeTheme={changeTheme}/>
-        <TaskInput theme={theme} />
-        <CheckList theme={theme} />
+        <Title theme={theme} changeTheme={changeTheme} />
+        <TaskInput theme={theme} task={task} handleOnChange={handleOnChange} handleSubmit={handleSubmit} />
+        <CheckList theme={theme} tasks={tasks} />
         <div className={`${styles.footer} ${theme == 'dark' ? styles.darkFooter : styles.lightFooter}`}>
           <TasksLeft theme={theme} />
           <Filters theme={theme} /> {/* chiquito */}
