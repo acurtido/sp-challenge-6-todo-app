@@ -37,13 +37,17 @@ function App() {
     setTasks([newTask, ...tasks]) 
   }
 
+  const deleteTask = (name) => { 
+    setTasks([...tasks.filter( t => t.name !== name)])
+  }
+
   return (
     <main className={`${styles.layout} ${theme == 'dark' ? styles.darkFooter : styles.lightFooter}`}>
       <img className={styles.background} src={theme == 'dark' ? imgDark : imgLight} alt="" />
       <div className={styles.content}>
         <Title theme={theme} changeTheme={changeTheme} />
         <TaskInput theme={theme} task={task} handleOnChange={handleOnChange} handleSubmit={handleSubmit} />
-        <CheckList theme={theme} tasks={tasks} />
+        <CheckList theme={theme} tasks={tasks} deleteTask={deleteTask} />
         <div className={`${styles.footer} ${theme == 'dark' ? styles.darkFooter : styles.lightFooter}`}>
           <TasksLeft theme={theme} />
           <Filters theme={theme} /> {/* chiquito */}
