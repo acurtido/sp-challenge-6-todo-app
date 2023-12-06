@@ -42,7 +42,7 @@ function App() {
   }
 
   return (
-    <main className={`${styles.layout} ${theme == 'dark' ? styles.darkFooter : styles.lightFooter}`}>
+    <main className={`${styles.layout} ${theme == 'dark' ? styles.dark : styles.light}`}>
       <img className={styles.background} src={theme == 'dark' ? imgDark : imgLight} alt="" />
       <div className={styles.content}>
         <Title theme={theme} changeTheme={changeTheme} />

@@ -20,9 +20,7 @@
 
 .checkbox:checked::before {
     content: url("/images/icon-check.svg");
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transform: scale(1.8);
-    translate: 0 7px;
+    position: absolute;
+    transform: scale(1.7);
+    translate: 9px 9px;
 }
