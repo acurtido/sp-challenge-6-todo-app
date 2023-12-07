@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { v4 as uuidv4 } from 'uuid';
 import imgDark from '/images/bg-desktop-dark.jpg'
 import imgLight from '/images/bg-desktop-light.jpg'
 
@@ -30,15 +31,25 @@ function App() {
   const handleSubmit = (e) => {
     e.preventDefault()
     addTask(task)
+    setTask('')
   }
 
   const addTask = (task) => { 
-    const newTask = {name: task, completed: false}
+    const newTask = {id: uuidv4(), name: task, completed: false}
     setTasks([newTask, ...tasks]) 
   }
 
-  const deleteTask = (name) => { 
-    setTasks([...tasks.filter( t => t.name !== name)])
+  const deleteTask = (id) => { 
+    setTasks([...tasks.filter( t => t.id !== id)])
+  }
+
+  const updateTask = (id) => {
+    setTasks([...tasks.map( t => {
+      if (t.id === id) {
+        t.completed = !t.completed
+      }
+      return t
+    })])
   }
 
   return (
@@ -47,7 +58,7 @@ function App() {
       <div className={styles.content}>
         <Title theme={theme} changeTheme={changeTheme} />
         <TaskInput theme={theme} task={task} handleOnChange={handleOnChange} handleSubmit={handleSubmit} />
-        <CheckList theme={theme} tasks={tasks} deleteTask={deleteTask} />
+        <CheckList theme={theme} tasks={tasks} deleteTask={deleteTask} updateTask={updateTask}/>
         <div className={`${styles.footer} ${theme == 'dark' ? styles.darkFooter : styles.lightFooter}`}>
           <TasksLeft theme={theme} />
           <Filters theme={theme} /> {/* chiquito */}
