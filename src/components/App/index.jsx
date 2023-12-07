@@ -14,10 +14,8 @@ function App() {
   const [theme, setTheme] = useState('dark')
   const [task, setTask] = useState('')
   const [tasks, setTasks] = useState([]) // nuestras tareas originales, esto no se va a ver
-
   const [filters, setFilters] = useState('all') // ['all', 'active', 'completed']
   const [filteredTasks, setFilteredTasks] = useState([]) // nuestras tareas filtradas
-
 
   useEffect(() => {
     updateFilteredTasks(filters)
@@ -42,14 +40,9 @@ function App() {
     setTask('')
   }
 
-  const addTask = (task) => {
-    const newTask = { id: uuidv4(), name: task, completed: false }
-    setTasks([newTask, ...tasks])
-  }
+  const addTask = (task) => setTasks([{ id: uuidv4(), name: task, completed: false }, ...tasks])
 
-  const deleteTask = (id) => {
-    setTasks([...tasks.filter(t => t.id !== id)])
-  }
+  const deleteTask = (id) => setTasks([...tasks.filter(t => t.id !== id)])
 
   const updateTask = (id) => {
     setTasks([...tasks.map(t => {
@@ -60,8 +53,7 @@ function App() {
     })])
   }
 
-
-  const updateFilteredTasks = (filter) => {
+  const updateFilteredTasks = (filters) => {
     if (filters === 'all') {
       setFilteredTasks(tasks)
     } else if (filters === 'active') {
@@ -71,14 +63,13 @@ function App() {
     }
   }
 
-
   const filterAll = () => setFilters('all')
+
   const filterActive = () => setFilters('active')
+
   const filterCompleted = () => setFilters('completed')
 
-  const clearTasks = () => {
-    setTasks([...tasks.filter(t => t.completed === false)])
-  }
+  const clearTasks = () => setTasks([...tasks.filter(t => t.completed === false)])
 
   return (
     <main className={`${styles.layout} ${theme == 'dark' ? styles.dark : styles.light}`}>
@@ -89,12 +80,8 @@ function App() {
         <CheckList theme={theme} tasks={filteredTasks} deleteTask={deleteTask} updateTask={updateTask} />
         <div className={`${styles.footer} ${theme == 'dark' ? styles.darkFooter : styles.lightFooter}`}>
           <TasksLeft theme={theme} tasks={tasks} />
-          <Filters
-            theme={theme}
-            filterAll={filterAll}
-            filterActive={filterActive}
-            filterCompleted={filterCompleted}
-            clearTasks={clearTasks} /> {/* chiquito */}
+          <Filters theme={theme} filterAll={filterAll} filterActive={filterActive}
+            filterCompleted={filterCompleted} clearTasks={clearTasks} /> {/* chiquito */}
         </div>
       </div>
     </main>
