@@ -3,18 +3,11 @@ import Task from '../Task'
 import PropTypes from 'prop-types'
 
 export default function CheckList({ theme, tasks, deleteTask, updateTask }) {
-
     return (
         <div className={`${styles.container} ${theme == 'dark' ? styles.dark : styles.light}`}>
             {tasks.map((task) => {
-                return <Task
-                    theme={theme}
-                    key={task.id}
-                    id={task.id}
-                    name={task.name}
-                    completed={task.completed}
-                    deleteTask={deleteTask}
-                    updateTask={updateTask} />
+                return <Task theme={theme} key={task.id} id={task.id} name={task.name}
+                    completed={task.completed} deleteTask={deleteTask} updateTask={updateTask} />
             })}
         </div>
     );

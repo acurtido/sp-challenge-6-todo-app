@@ -10,12 +10,19 @@ import TasksLeft from '../TasksLeft'
 import Filters from '../Filters'
 import styles from './styles.module.css'
 
+/**
+ * Componente App.
+ * Componente principal donde se definen los states que se 
+ * propagarán a los demás componentes en forma de `props`.
+ * @component
+ * @returns {JSX.Element} - Elemento React que representa MiComponente.
+ */
 function App() {
-  const [theme, setTheme] = useState('dark')
-  const [task, setTask] = useState('')
-  const [tasks, setTasks] = useState([]) // nuestras tareas originales, esto no se va a ver
+  const [theme, setTheme] = useState('dark') // tema principal de la apliación
+  const [taskName, setTaskName] = useState('') // nombre de la tarea cargado en el input
+  const [tasks, setTasks] = useState([]) // tareas originales, esto no se va a ver
   const [filters, setFilters] = useState('all') // ['all', 'active', 'completed']
-  const [filteredTasks, setFilteredTasks] = useState([]) // nuestras tareas filtradas
+  const [filteredTasks, setFilteredTasks] = useState([]) // tareas filtradas
 
   useEffect(() => {
     updateFilteredTasks(filters)
@@ -29,29 +36,24 @@ function App() {
     }
   }
 
-  const handleOnChange = (e) => {
-    e.preventDefault()
-    setTask(e.target.value)
-  }
+  const handleOnChange = (e) => setTaskName(e.target.value)
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    addTask(task)
-    setTask('')
+    addTask(taskName)
+    setTaskName('')
   }
 
   const addTask = (task) => setTasks([{ id: uuidv4(), name: task, completed: false }, ...tasks])
 
   const deleteTask = (id) => setTasks([...tasks.filter(t => t.id !== id)])
 
-  const updateTask = (id) => {
-    setTasks([...tasks.map(t => {
-      if (t.id === id) {
-        t.completed = !t.completed
-      }
-      return t
-    })])
-  }
+  const updateTask = (id) => setTasks([...tasks.map(t => {
+    if (t.id === id) {
+      t.completed = !t.completed
+    }
+    return t
+  })])
 
   const updateFilteredTasks = (filters) => {
     if (filters === 'all') {
@@ -76,7 +78,7 @@ function App() {
       <img className={styles.background} src={theme == 'dark' ? imgDark : imgLight} alt="" />
       <div className={styles.content}>
         <Title theme={theme} changeTheme={changeTheme} />
-        <TaskInput theme={theme} task={task} handleOnChange={handleOnChange} handleSubmit={handleSubmit} />
+        <TaskInput theme={theme} taskName={taskName} handleOnChange={handleOnChange} handleSubmit={handleSubmit} />
         <CheckList theme={theme} tasks={filteredTasks} deleteTask={deleteTask} updateTask={updateTask} />
         <div className={`${styles.footer} ${theme == 'dark' ? styles.darkFooter : styles.lightFooter}`}>
           <TasksLeft theme={theme} tasks={tasks} />
