@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { v4 as uuidv4 } from 'uuid';
 import imgDark from '/images/bg-desktop-dark.jpg'
 import imgLight from '/images/bg-desktop-light.jpg'
@@ -13,7 +13,15 @@ import styles from './styles.module.css'
 function App() {
   const [theme, setTheme] = useState('dark')
   const [task, setTask] = useState('')
-  const [tasks, setTasks] = useState([])
+  const [tasks, setTasks] = useState([]) // nuestras tareas originales, esto no se va a ver
+
+  const [filters, setFilters] = useState('all') // ['all', 'active', 'completed']
+  const [filteredTasks, setFilteredTasks] = useState([]) // nuestras tareas filtradas
+
+
+  useEffect(() => {
+    updateFilteredTasks(filters)
+  }, [tasks, filters])
 
   const changeTheme = () => {
     if (theme === 'dark') {
@@ -34,22 +42,42 @@ function App() {
     setTask('')
   }
 
-  const addTask = (task) => { 
-    const newTask = {id: uuidv4(), name: task, completed: false}
-    setTasks([newTask, ...tasks]) 
+  const addTask = (task) => {
+    const newTask = { id: uuidv4(), name: task, completed: false }
+    setTasks([newTask, ...tasks])
   }
 
-  const deleteTask = (id) => { 
-    setTasks([...tasks.filter( t => t.id !== id)])
+  const deleteTask = (id) => {
+    setTasks([...tasks.filter(t => t.id !== id)])
   }
 
   const updateTask = (id) => {
-    setTasks([...tasks.map( t => {
+    setTasks([...tasks.map(t => {
       if (t.id === id) {
         t.completed = !t.completed
       }
       return t
     })])
+  }
+
+
+  const updateFilteredTasks = (filter) => {
+    if (filters === 'all') {
+      setFilteredTasks(tasks)
+    } else if (filters === 'active') {
+      setFilteredTasks(tasks.filter(t => t.completed === false))
+    } else if (filters === 'completed') {
+      setFilteredTasks(tasks.filter(t => t.completed === true))
+    }
+  }
+
+
+  const filterAll = () => setFilters('all')
+  const filterActive = () => setFilters('active')
+  const filterCompleted = () => setFilters('completed')
+
+  const clearTasks = () => {
+    setTasks([...tasks.filter(t => t.completed === false)])
   }
 
   return (
@@ -58,10 +86,15 @@ function App() {
       <div className={styles.content}>
         <Title theme={theme} changeTheme={changeTheme} />
         <TaskInput theme={theme} task={task} handleOnChange={handleOnChange} handleSubmit={handleSubmit} />
-        <CheckList theme={theme} tasks={tasks} deleteTask={deleteTask} updateTask={updateTask}/>
+        <CheckList theme={theme} tasks={filteredTasks} deleteTask={deleteTask} updateTask={updateTask} />
         <div className={`${styles.footer} ${theme == 'dark' ? styles.darkFooter : styles.lightFooter}`}>
           <TasksLeft theme={theme} tasks={tasks} />
-          <Filters theme={theme} /> {/* chiquito */}
+          <Filters
+            theme={theme}
+            filterAll={filterAll}
+            filterActive={filterActive}
+            filterCompleted={filterCompleted}
+            clearTasks={clearTasks} /> {/* chiquito */}
         </div>
       </div>
     </main>
