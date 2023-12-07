@@ -60,7 +60,7 @@ function App() {
         <TaskInput theme={theme} task={task} handleOnChange={handleOnChange} handleSubmit={handleSubmit} />
         <CheckList theme={theme} tasks={tasks} deleteTask={deleteTask} updateTask={updateTask}/>
         <div className={`${styles.footer} ${theme == 'dark' ? styles.darkFooter : styles.lightFooter}`}>
-          <TasksLeft theme={theme} />
+          <TasksLeft theme={theme} tasks={tasks} />
           <Filters theme={theme} /> {/* chiquito */}
         </div>
       </div>
